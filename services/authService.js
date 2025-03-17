@@ -33,7 +33,7 @@ const login = async ({ email, password }) => {
     const user = await User.findOne({ email });
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return {
-        code: STATUS_CODE.UNAUTHORIZED,
+        code: STATUS_CODE.SUCCESS,
         success: false,
         message: "Wrong email or password!",
       };
